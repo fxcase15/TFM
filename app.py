@@ -174,30 +174,27 @@ if st.session_state.recs_ready:
     df = preprocess_products(product_data)
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
+    
+    
+    st.subheader("📦 Top 3 Productes per categoria (amb Final Score > 90)")
 
-    st.subheader("📦 Top 3 Productes per categoria (amb puntuació > 90)")
-
-    # Primer filtrem productes amb score > 90
-    highscore_recommendations = sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
-
-    # Seleccionem només les categories que tenen almenys un producte > 90
-    categories_valides = highscore_recommendations["Category"].unique()
-
-    # Preparem el top 3 per cada categoria vàlida
-    top3_by_category = (
-        highscore_recommendations
+    # Primer filtrem els productes amb puntuació superior a 90
+    top5_by_category = (
+        sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
         .sort_values(["Category", "Final_Score"], ascending=[True, False])
         .groupby("Category")
         .head(3)
     )
 
-    # Mostrem-ho per cada categoria en format taula HTML
-    for cat in categories_valides:
+    for cat in top5_by_category["Category"].unique():
         st.markdown(f"#### 🗂️ {cat}")
-        subset = top3_by_category[top3_by_category["Category"] == cat].copy()
-        subset["Link"] = subset["URL"].apply(lambda x: f'<a href="{x}" target="_blank">Link</a>')
-        subset = subset[["Product_Name", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
-        st.write(subset.to_html(escape=False, index=False), unsafe_allow_html=True)
+        subset = top5_by_category[top5_by_category["Category"] == cat]
+        cols = st.columns(3)  # o 5 si vols més compactat
+        for i, (_, row) in enumerate(subset.iterrows()):
+            with cols[i % 3]:
+                st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
+                st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
+                st.checkbox("✅ Add to basket", key=f"buy_highscore_{cat}_{i}")
 
     st.subheader("🥇 Top 5 Recommended Groceries")
 
