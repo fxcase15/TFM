@@ -218,11 +218,24 @@ if st.session_state.recs_ready:
         for i, (_, row) in enumerate(subset.iterrows()):
             if st.session_state.get(f"buy_{cat}_{i}", False):
                 product_id = str(row["URL"]).split("/")[-1]
+                product_name = row["Product_Name"]
+
                 selected_products.append({
-                    "Product_Name": row["Product_Name"],
+                    "Product_Name": product_name,
                     "Product_ID": product_id,
                     "Quantity": 1
                 })
+
+                # Guardar directament el clic al Google Sheet
+                guardar_a_google_sheets(
+                    pd.DataFrame([{
+                        "Product_Name": product_name,
+                        "Product_ID": product_id,
+                        "Quantity": 1
+                    }]),
+                    user_priorities
+                )
+
 
 
     if selected_products:
