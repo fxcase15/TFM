@@ -266,16 +266,17 @@ if st.session_state.recs_ready:
                     "Product_ID": product_id,
                     "Quantity": 1
                 })
+
     for cat in filtered_by_category["Category"].unique():
     subset = filtered_by_category[filtered_by_category["Category"] == cat]
-    for i, (_, row) in enumerate(subset.iterrows()):
-        if st.session_state.get(f"buy_highscore_{cat}_{i}", False):
-            product_id = str(row["URL"]).split("/")[-1]
-            selected_products.append({
-                "Product_Name": row["Product_Name"],
-                "Product_ID": product_id,
-                "Quantity": 1
-            })
+        for i, (_, row) in enumerate(subset.iterrows()):
+            if st.session_state.get(f"buy_highscore_{cat}_{i}", False):
+                product_id = str(row["URL"]).split("/")[-1]
+                selected_products.append({
+                    "Product_Name": row["Product_Name"],
+                    "Product_ID": product_id,
+                    "Quantity": 1
+                })
 
     if selected_products:
         url_parts = [f"p={p['Product_ID']}:{p['Quantity']}" for p in selected_products]
