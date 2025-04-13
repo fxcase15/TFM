@@ -1,6 +1,6 @@
 # Ignora la carpeta amb dades dels usuaris
 dades_usuaris/
-gcp_credentials.json
+tfm-streamlit-cb211d491802.json
 
 # Fitxers temporals de Python
 *.pyc
