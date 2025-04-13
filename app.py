@@ -204,7 +204,7 @@ if st.session_state.recs_ready:
             with cols[i % 3]:
                 st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
                 st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
-                st.checkbox("✅ Add to basket", key=f"buy_highscore_{cat}_{i}")
+                st.checkbox("✅ Add to basket", key=f"buy_{cat}_{i}")
 
 
 
