@@ -175,6 +175,35 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
 
+
+
+    st.subheader("🔄 Format A: Targetes 2 per fila (columns)")
+
+    subset = filtered_by_category.head(6)  # Només com a exemple visual
+
+    for i in range(0, len(subset), 2):
+        cols = st.columns(2)
+        for j in range(2):
+            if i + j < len(subset):
+                row = subset.iloc[i + j]
+                with cols[j]:
+                    st.markdown(f"**{row['Product_Name']}**")
+                    st.caption(f"{row['Price (€)']} € | Nutri: {row['Nutriscore']}")
+                    st.checkbox("🛒 Afegir", key=f"colprod_{i+j}")
+
+    st.subheader("🔄 Format B: Llistat estil taula + acció")
+
+    for i, row in subset.iterrows():
+        col1, col2, col3, col4 = st.columns([5, 2, 1, 2])
+        with col1:
+            st.markdown(f"**{row['Product_Name']}**")
+        with col2:
+            st.write(f"{row['Price (€)']} €")
+        with col3:
+            st.write(row["Nutriscore"])
+        with col4:
+            st.checkbox("🛒", key=f"rowprod_{i}")
+
     st.subheader("📦 Productes destacats per categoria")
 
     categories = sorted(sorted_recommendations["Category"].unique())
