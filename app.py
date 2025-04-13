@@ -256,6 +256,8 @@ if st.session_state.recs_ready:
 
 
     selected_products = []
+
+    # Top 5 per categoria
     for cat in top5_by_category["Category"].unique():
         subset = top5_by_category[top5_by_category["Category"] == cat]
         for i, (_, row) in enumerate(subset.iterrows()):
@@ -267,8 +269,9 @@ if st.session_state.recs_ready:
                     "Quantity": 1
                 })
 
+    # Productes destacats per categoria (>90)
     for cat in filtered_by_category["Category"].unique():
-    subset = filtered_by_category[filtered_by_category["Category"] == cat]
+        subset = filtered_by_category[filtered_by_category["Category"] == cat]
         for i, (_, row) in enumerate(subset.iterrows()):
             if st.session_state.get(f"buy_highscore_{cat}_{i}", False):
                 product_id = str(row["URL"]).split("/")[-1]
@@ -277,6 +280,7 @@ if st.session_state.recs_ready:
                     "Product_ID": product_id,
                     "Quantity": 1
                 })
+
 
     if selected_products:
         url_parts = [f"p={p['Product_ID']}:{p['Quantity']}" for p in selected_products]
