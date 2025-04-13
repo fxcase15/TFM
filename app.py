@@ -285,7 +285,6 @@ if st.session_state.recs_ready:
         # Excel amb productes seleccionats
         df_cart = pd.DataFrame(selected_products)
 
-        guardar_a_google_sheets(df_cart, user_priorities)
         # Crear una carpeta si no existeix
         os.makedirs("dades_usuaris", exist_ok=True)
 
