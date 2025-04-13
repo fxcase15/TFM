@@ -167,7 +167,30 @@ if st.session_state.recs_ready:
     df = preprocess_products(product_data)
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
-    
+    def guardar_a_google_sheets(df_cart, priorities_dict):
+        import gspread
+        import json
+        from oauth2client.service_account import ServiceAccountCredentials
+        from datetime import datetime
+
+        scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+        creds_dict = json.loads(st.secrets["gcp_credentials"])
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+        client = gspread.authorize(creds)
+
+        sheet = client.open("TFM - Cistells usuaris").sheet1  # Make sure this name matches your sheet
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # Convert priorities dict to readable string (e.g. "Vegan(3), Price(1)")
+        priorities_str = ", ".join([f"{k}({v})" for k, v in priorities_dict.items() if v > 0])
+        for _, row in df_cart.iterrows():
+            sheet.append_row([
+                timestamp,
+                priorities_str,
+                row["Product_Name"],
+                row["Product_ID"]
+            ])
+            
     st.subheader("🥇 Top 5 Recommended Groceries")
 
     def make_clickable(val):
@@ -237,7 +260,6 @@ if st.session_state.recs_ready:
                 )
 
 
-
     if selected_products:
         url_parts = [f"p={p['Product_ID']}:{p['Quantity']}" for p in selected_products]
         shopping_url = "https://www.ah.nl/mijnlijst/add-multiple?" + "&".join(url_parts)
@@ -252,31 +274,6 @@ if st.session_state.recs_ready:
 
         # Excel amb productes seleccionats
         df_cart = pd.DataFrame(selected_products)
-
-        def guardar_a_google_sheets(df_cart, priorities_dict):
-            import gspread
-            import json
-            from oauth2client.service_account import ServiceAccountCredentials
-            from datetime import datetime
-
-            scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-            creds_dict = json.loads(st.secrets["gcp_credentials"])
-            creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
-            client = gspread.authorize(creds)
-
-            sheet = client.open("TFM - Cistells usuaris").sheet1  # Make sure this name matches your sheet
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-            # Convert priorities dict to readable string (e.g. "Vegan(3), Price(1)")
-            priorities_str = ", ".join([f"{k}({v})" for k, v in priorities_dict.items() if v > 0])
-
-            for _, row in df_cart.iterrows():
-                sheet.append_row([
-                    timestamp,
-                    priorities_str,
-                    row["Product_Name"],
-                    row["Product_ID"]
-                ])
 
         guardar_a_google_sheets(df_cart, user_priorities)
         # Crear una carpeta si no existeix
