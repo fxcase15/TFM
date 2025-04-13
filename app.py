@@ -175,6 +175,48 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
 
+    st.subheader("📦 Productes destacats per categoria")
+
+    categories = sorted(sorted_recommendations["Category"].unique())
+    filtered_by_category = (
+        sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
+        .sort_values(["Category", "Final_Score"], ascending=[True, False])
+        .groupby("Category")
+        .head(3)
+    )
+
+    st.subheader("📦 Productes destacats per categoria (Final Score > 90)")
+
+    for cat in filtered_by_category["Category"].unique():
+        st.markdown(f"#### 🗂️ {cat}")
+        subset = filtered_by_category[filtered_by_category["Category"] == cat]
+
+        for i, row in subset.iterrows():
+            col1, col2 = st.columns([6, 1])
+            with col1:
+                st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
+                st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
+            with col2:
+                st.checkbox("✅", key=f"buy_highscore_{cat}_{i}")
+
+
+
+    st.subheader("🔎 Vols veure els 5 millors productes d'una categoria concreta?")
+    categoria_seleccionada = st.selectbox("Tria la categoria", options=categories)
+
+    top5_especific = (
+        sorted_recommendations[sorted_recommendations["Category"] == categoria_seleccionada]
+        .sort_values("Final_Score", ascending=False)
+        .head(5)
+    ).copy()
+
+    top5_especific["Link"] = top5_especific["URL"].apply(lambda x: f'<a href="{x}" target="_blank">Link</a>')
+    top5_especific = top5_especific[["Product_Name", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
+
+    st.markdown(f"#### 🏆 Top 5 de la categoria: **{categoria_seleccionada}**")
+    st.write(top5_especific.to_html(escape=False, index=False), unsafe_allow_html=True)
+
+
     st.subheader("🥇 Top 5 Recommended Groceries")
 
     def make_clickable(val):
@@ -224,6 +266,16 @@ if st.session_state.recs_ready:
                     "Product_ID": product_id,
                     "Quantity": 1
                 })
+    for cat in filtered_by_category["Category"].unique():
+    subset = filtered_by_category[filtered_by_category["Category"] == cat]
+    for i, (_, row) in enumerate(subset.iterrows()):
+        if st.session_state.get(f"buy_highscore_{cat}_{i}", False):
+            product_id = str(row["URL"]).split("/")[-1]
+            selected_products.append({
+                "Product_Name": row["Product_Name"],
+                "Product_ID": product_id,
+                "Quantity": 1
+            })
 
     if selected_products:
         url_parts = [f"p={p['Product_ID']}:{p['Quantity']}" for p in selected_products]
@@ -240,23 +292,33 @@ if st.session_state.recs_ready:
         # Excel amb productes seleccionats
         df_cart = pd.DataFrame(selected_products)
 
-        def guardar_a_google_sheets(df_cart, usuari):
+        def guardar_a_google_sheets(df_cart, usuari, priorities_dict):
             import gspread
             import json
             from oauth2client.service_account import ServiceAccountCredentials
+            from datetime import datetime
 
             scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
             creds_dict = json.loads(st.secrets["gcp_credentials"])
             creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
             client = gspread.authorize(creds)
 
-            sheet = client.open("TFM - Cistells usuaris").sheet1  # Canvia si el teu full té un altre nom
+            sheet = client.open("TFM - Cistells usuaris").sheet1  # Make sure this name matches your sheet
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            for _, row in df_cart.iterrows():
-                sheet.append_row([timestamp, usuari, row["Product_Name"], row["Product_ID"], row["Quantity"]])
+            # Convert priorities dict to readable string (e.g. "Vegan(3), Price(1)")
+            priorities_str = ", ".join([f"{k}({v})" for k, v in priorities_dict.items() if v > 0])
 
-        guardar_a_google_sheets(df_cart, st.session_state.user_id)
+            for _, row in df_cart.iterrows():
+                sheet.append_row([
+                    timestamp,
+                    usuari,
+                    priorities_str,
+                    row["Product_Name"],
+                    row["Product_ID"]
+                ])
+
+        guardar_a_google_sheets(df_cart, st.session_state.user_id, user_priorities)
         # Crear una carpeta si no existeix
         os.makedirs("dades_usuaris", exist_ok=True)
 
