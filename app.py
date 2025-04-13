@@ -175,85 +175,29 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
 
-    st.subheader("🔄 Format de prova visual (dos estils)")
+    st.subheader("📦 Top 3 Productes per categoria (amb puntuació > 90)")
 
-    # Prepara subset d'exemple
-    filtered_by_category = (
-        sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
-        .sort_values(["Category", "Final_Score"], ascending=[True, False])
-        .groupby("Category")
-        .head(3)
-    )
-    subset = filtered_by_category.head(6)  # només per exemple visual
+    # Primer filtrem productes amb score > 90
+    highscore_recommendations = sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
 
-    # Format A
-    st.subheader("🟩 Format A: Targetes 2 per fila (columns)")
+    # Seleccionem només les categories que tenen almenys un producte > 90
+    categories_valides = highscore_recommendations["Category"].unique()
 
-    for i in range(0, len(subset), 2):
-        cols = st.columns(2)
-        for j in range(2):
-            if i + j < len(subset):
-                row = subset.iloc[i + j]
-                with cols[j]:
-                    st.markdown(f"**{row['Product_Name']}**")
-                    st.caption(f"{row['Price (€)']} € | Nutri: {row['Nutriscore']}")
-                    st.checkbox("🛒 Afegir", key=f"colprod_{i+j}")
-
-    # Format B
-    st.subheader("🟦 Format B: Llistat estil taula + acció")
-
-    for i, row in subset.iterrows():
-        col1, col2, col3, col4 = st.columns([5, 2, 1, 2])
-        with col1:
-            st.markdown(f"**{row['Product_Name']}**")
-        with col2:
-            st.write(f"{row['Price (€)']} €")
-        with col3:
-            st.write(row["Nutriscore"])
-        with col4:
-            st.checkbox("🛒", key=f"rowprod_{i}")
-
-    st.subheader("📦 Productes destacats per categoria")
-
-    categories = sorted(sorted_recommendations["Category"].unique())
-    filtered_by_category = (
-        sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
+    # Preparem el top 3 per cada categoria vàlida
+    top3_by_category = (
+        highscore_recommendations
         .sort_values(["Category", "Final_Score"], ascending=[True, False])
         .groupby("Category")
         .head(3)
     )
 
-    st.subheader("📦 Productes destacats per categoria (Final Score > 90)")
-
-    for cat in filtered_by_category["Category"].unique():
+    # Mostrem-ho per cada categoria en format taula HTML
+    for cat in categories_valides:
         st.markdown(f"#### 🗂️ {cat}")
-        subset = filtered_by_category[filtered_by_category["Category"] == cat]
-
-        for i, row in subset.iterrows():
-            col1, col2 = st.columns([6, 1])
-            with col1:
-                st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
-                st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
-            with col2:
-                st.checkbox("✅", key=f"buy_highscore_{cat}_{i}")
-
-
-
-    st.subheader("🔎 Vols veure els 5 millors productes d'una categoria concreta?")
-    categoria_seleccionada = st.selectbox("Tria la categoria", options=categories)
-
-    top5_especific = (
-        sorted_recommendations[sorted_recommendations["Category"] == categoria_seleccionada]
-        .sort_values("Final_Score", ascending=False)
-        .head(5)
-    ).copy()
-
-    top5_especific["Link"] = top5_especific["URL"].apply(lambda x: f'<a href="{x}" target="_blank">Link</a>')
-    top5_especific = top5_especific[["Product_Name", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
-
-    st.markdown(f"#### 🏆 Top 5 de la categoria: **{categoria_seleccionada}**")
-    st.write(top5_especific.to_html(escape=False, index=False), unsafe_allow_html=True)
-
+        subset = top3_by_category[top3_by_category["Category"] == cat].copy()
+        subset["Link"] = subset["URL"].apply(lambda x: f'<a href="{x}" target="_blank">Link</a>')
+        subset = subset[["Product_Name", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
+        st.write(subset.to_html(escape=False, index=False), unsafe_allow_html=True)
 
     st.subheader("🥇 Top 5 Recommended Groceries")
 
