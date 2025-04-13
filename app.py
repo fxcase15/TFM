@@ -136,13 +136,6 @@ def calculate_scores(df, user_priorities):
 
 st.set_page_config(page_title="Recommender", layout="wide")
 st.title("🍎 Your Personalized Groceries Recommender")
-st.sidebar.title("👤 User session")
-user_id = st.sidebar.text_input("Please introduce your name", value="usuari_default")
-
-if "user_id" not in st.session_state:
-    st.session_state.user_id = user_id
-else:
-    st.session_state.user_id = user_id
 
 @st.cache_data
 def load_data():
@@ -247,7 +240,7 @@ if st.session_state.recs_ready:
         # Excel amb productes seleccionats
         df_cart = pd.DataFrame(selected_products)
 
-        def guardar_a_google_sheets(df_cart, usuari, priorities_dict):
+        def guardar_a_google_sheets(df_cart, priorities_dict):
             import gspread
             import json
             from oauth2client.service_account import ServiceAccountCredentials
@@ -273,13 +266,13 @@ if st.session_state.recs_ready:
                     row["Product_ID"]
                 ])
 
-        guardar_a_google_sheets(df_cart, st.session_state.user_id, user_priorities)
+        guardar_a_google_sheets(df_cart, user_priorities)
         # Crear una carpeta si no existeix
         os.makedirs("dades_usuaris", exist_ok=True)
 
         # Nom de fitxer amb usuari i timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"dades_usuaris/cistell_{st.session_state.user_id}_{timestamp}.xlsx"
+        filename = f"dades_usuaris/cistell_{timestamp}.xlsx"
 
         # Guardar el fitxer
         df_cart.to_excel(filename, index=False)
