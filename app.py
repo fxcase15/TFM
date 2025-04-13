@@ -135,7 +135,7 @@ def calculate_scores(df, user_priorities):
 # =====================================
 
 st.set_page_config(page_title="Recommender", layout="wide")
-st.title("🍎 Your Personalitzat Recommender of Groceries")
+st.title("🍎 Your Personalized Groceries Recommender")
 st.sidebar.title("👤 User session")
 user_id = st.sidebar.text_input("Please introduce your name", value="usuari_default")
 
@@ -178,11 +178,11 @@ if st.session_state.recs_ready:
     st.subheader("🥇 Top 5 Recommended Groceries")
 
     def make_clickable(val):
-        return f'<a href="{val}" target="_blank">Enllaç</a>' if pd.notna(val) else ''
+        return f'<a href="{val}" target="_blank">Link</a>' if pd.notna(val) else ''
 
     display_df = sorted_recommendations.head(5).copy()
-    display_df["Enllaç"] = display_df["URL"].apply(make_clickable)
-    display_df = display_df[["Product_Name", "Category", "Price (€)", "Nutriscore", "Final_Score", "Enllaç"]]
+    display_df["Link"] = display_df["URL"].apply(make_clickable)
+    display_df = display_df[["Product_Name", "Category", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
     st.write(display_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
     st.subheader("📦 Top 3 Products per category")
@@ -200,7 +200,7 @@ if st.session_state.recs_ready:
             with cols[i % 5]:
                 st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
                 st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
-                st.checkbox("✅ Afegir al cistell", key=f"buy_{cat}_{i}")
+                st.checkbox("✅ Add to basket", key=f"buy_{cat}_{i}")
 
 
 
@@ -228,13 +228,13 @@ if st.session_state.recs_ready:
     if selected_products:
         url_parts = [f"p={p['Product_ID']}:{p['Quantity']}" for p in selected_products]
         shopping_url = "https://www.ah.nl/mijnlijst/add-multiple?" + "&".join(url_parts)
-        st.markdown(f"### 🔗 [Fes clic aquí per afegir els productes al teu carro d'Albert Heijn]({shopping_url})", unsafe_allow_html=True)
+        st.markdown(f"### 🔗 [Click here to add your groceries in the basket]({shopping_url})", unsafe_allow_html=True)
     if selected_products:
-        st.subheader("👀 Vista prèvia del cistell")
+        st.subheader("👀 Your cart")
         preview_df = pd.DataFrame(selected_products)[["Product_Name", "Product_ID", "Quantity"]]
-        preview_df["Enllaç"] = preview_df["Product_ID"].apply(lambda x: f"https://www.ah.nl/producten/product/{x}")
-        preview_df = preview_df[["Product_Name", "Quantity", "Enllaç"]]
-        preview_df["Enllaç"] = preview_df["Enllaç"].apply(lambda x: f'<a href="{x}" target="_blank">Veure</a>')
+        preview_df["Link"] = preview_df["Product_ID"].apply(lambda x: f"https://www.ah.nl/producten/product/{x}")
+        preview_df = preview_df[["Product_Name", "Quantity", "Link"]]
+        preview_df["Link"] = preview_df["Link"].apply(lambda x: f'<a href="{x}" target="_blank">Link</a>')
         st.write(preview_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
         # Excel amb productes seleccionats
@@ -269,15 +269,8 @@ if st.session_state.recs_ready:
         output_cart = BytesIO()
         with pd.ExcelWriter(output_cart, engine='xlsxwriter') as writer:
             df_cart.to_excel(writer, index=False, sheet_name='Cistell')
-        st.download_button(
-            label="📄 Descarrega el cistell seleccionat",
-            data=output_cart.getvalue(),
-            file_name="cistell.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
-
     st.download_button(
-        label="📄 Descarrega recomanacions en Excel",
+        label="📄 Download all recommendations in Excel",
         data=excel_data,
         file_name="recomanacions.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
