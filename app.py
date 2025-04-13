@@ -163,6 +163,9 @@ if "recs_ready" not in st.session_state:
 if st.button("🔍 Generate personalized recommendations"):
     st.session_state.recs_ready = True
 
+if "saved_products" not in st.session_state:
+    st.session_state.saved_products = set()
+
 if st.session_state.recs_ready:
     df = preprocess_products(product_data)
     recommendations = calculate_scores(df, user_priorities)
@@ -249,15 +252,22 @@ if st.session_state.recs_ready:
                     "Quantity": 1
                 })
 
-                # Guardar directament el clic al Google Sheet
-                guardar_a_google_sheets(
-                    pd.DataFrame([{
-                        "Product_Name": product_name,
-                        "Product_ID": product_id,
-                        "Quantity": 1
-                    }]),
-                    user_priorities
-                )
+                # UID únic per cada producte (per evitar duplicats)
+                product_uid = f"{product_name}_{product_id}"
+
+                if product_uid not in st.session_state.saved_products:
+                    st.session_state.saved_products.add(product_uid)
+
+                    # Guardar al Google Sheets només si no s'havia guardat abans
+                    guardar_a_google_sheets(
+                        pd.DataFrame([{
+                            "Product_Name": product_name,
+                            "Product_ID": product_id,
+                            "Quantity": 1
+                        }]),
+                        user_priorities
+                    )
+
 
 
     if selected_products:
