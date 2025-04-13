@@ -1,5 +1,6 @@
 # Ignora la carpeta amb dades dels usuaris
 dades_usuaris/
+gcp_credentials.json
 
 # Fitxers temporals de Python
 *.pyc

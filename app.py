@@ -134,10 +134,10 @@ def calculate_scores(df, user_priorities):
 # INTERFÍCIE STREAMLIT
 # =====================================
 
-st.set_page_config(page_title="Recomanador", layout="wide")
-st.title("🍎 Recomanador Personalitzat de Productes d'Alimentació")
-st.sidebar.title("👤 Sessió de l’usuari")
-user_id = st.sidebar.text_input("Introdueix el teu nom o ID d’usuari", value="usuari_default")
+st.set_page_config(page_title="Recommender", layout="wide")
+st.title("🍎 Your Personalitzat Recommender of Groceries")
+st.sidebar.title("👤 User session")
+user_id = st.sidebar.text_input("Please introduce your name", value="usuari_default")
 
 if "user_id" not in st.session_state:
     st.session_state.user_id = user_id
@@ -150,10 +150,10 @@ def load_data():
 
 product_data = load_data()
 
-st.subheader("Selecciona les teves prioritats")
-high = st.multiselect("🎯 Alta Prioritat (x3)", ['Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal'])
-medium = st.multiselect("⚖️ Mitjana Prioritat (x2)", ['Loosing weight', 'Eating Healthy', 'Reducing Colesterol', 'High Protein'])
-low = st.multiselect("💸 Baixa Prioritat (x1)", ['Price', 'Sustainability', 'Local Products'])
+st.subheader("Please select your priorities")
+high = st.multiselect("🎯 High Priority (x3)", ['Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal'])
+medium = st.multiselect("⚖️ Medium Priority (x2)", ['Loosing weight', 'Eating Healthy', 'Reducing Colesterol', 'High Protein'])
+low = st.multiselect("💸 Low Priority (x1)", ['Price', 'Sustainability', 'Local Products'])
 
 user_priorities = {k: 0 for k in [
     'Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal',
@@ -167,7 +167,7 @@ for k in low: user_priorities[k] = 1
 if "recs_ready" not in st.session_state:
     st.session_state.recs_ready = False
 
-if st.button("🔍 Generar recomanacions"):
+if st.button("🔍 Generate personalized recommendations"):
     st.session_state.recs_ready = True
 
 if st.session_state.recs_ready:
@@ -175,7 +175,7 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
 
-    st.subheader("🥇 Top 5 Productes Recomanats (generals)")
+    st.subheader("🥇 Top 5 Recommended Groceries")
 
     def make_clickable(val):
         return f'<a href="{val}" target="_blank">Enllaç</a>' if pd.notna(val) else ''
@@ -185,11 +185,11 @@ if st.session_state.recs_ready:
     display_df = display_df[["Product_Name", "Category", "Price (€)", "Nutriscore", "Final_Score", "Enllaç"]]
     st.write(display_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-    st.subheader("📦 Millors 5 Productes per Categoria")
+    st.subheader("📦 Top 3 Products per category")
     top5_by_category = (
         sorted_recommendations.sort_values(["Category", "Final_Score"], ascending=[True, False])
         .groupby("Category")
-        .head(5)
+        .head(3)
     )
 
     for cat in top5_by_category["Category"].unique():
@@ -239,6 +239,24 @@ if st.session_state.recs_ready:
 
         # Excel amb productes seleccionats
         df_cart = pd.DataFrame(selected_products)
+
+        def guardar_a_google_sheets(df_cart, usuari):
+            import gspread
+            import json
+            from oauth2client.service_account import ServiceAccountCredentials
+
+            scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+            creds_dict = json.loads(st.secrets["gcp_credentials"])
+            creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+            client = gspread.authorize(creds)
+
+            sheet = client.open("TFM - Cistells usuaris").sheet1  # Canvia si el teu full té un altre nom
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            for _, row in df_cart.iterrows():
+                sheet.append_row([timestamp, usuari, row["Product_Name"], row["Product_ID"], row["Quantity"]])
+
+        guardar_a_google_sheets(df_cart, st.session_state.user_id)
         # Crear una carpeta si no existeix
         os.makedirs("dades_usuaris", exist_ok=True)
 
