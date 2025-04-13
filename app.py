@@ -260,7 +260,6 @@ if st.session_state.recs_ready:
             for _, row in df_cart.iterrows():
                 sheet.append_row([
                     timestamp,
-                    usuari,
                     priorities_str,
                     row["Product_Name"],
                     row["Product_ID"]
