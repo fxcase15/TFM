@@ -1,0 +1,15 @@
+# Ignora la carpeta amb dades dels usuaris
+dades_usuaris/
+
+# Fitxers temporals de Python
+*.pyc
+__pycache__/
+
+# Fitxers de backup
+*.bak
+*.tmp
+*~
+
+# Fitxers del sistema (Mac, VS Code, etc.)
+.DS_Store
+.vscode/
