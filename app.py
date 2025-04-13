@@ -175,6 +175,16 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
     
+    st.subheader("🥇 Top 5 Recommended Groceries")
+
+    def make_clickable(val):
+        return f'<a href="{val}" target="_blank">Link</a>' if pd.notna(val) else ''
+
+    display_df = sorted_recommendations.head(5).copy()
+    display_df["Link"] = display_df["URL"].apply(make_clickable)
+    display_df = display_df[["Product_Name", "Category", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
+    st.write(display_df.to_html(escape=False, index=False), unsafe_allow_html=True)
+
     
     st.subheader("📦 Top 3 Productes per categoria (amb Final Score > 90)")
 
@@ -195,33 +205,6 @@ if st.session_state.recs_ready:
                 st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
                 st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
                 st.checkbox("✅ Add to basket", key=f"buy_highscore_{cat}_{i}")
-
-    st.subheader("🥇 Top 5 Recommended Groceries")
-
-    def make_clickable(val):
-        return f'<a href="{val}" target="_blank">Link</a>' if pd.notna(val) else ''
-
-    display_df = sorted_recommendations.head(5).copy()
-    display_df["Link"] = display_df["URL"].apply(make_clickable)
-    display_df = display_df[["Product_Name", "Category", "Price (€)", "Nutriscore", "Final_Score", "Link"]]
-    st.write(display_df.to_html(escape=False, index=False), unsafe_allow_html=True)
-
-    st.subheader("📦 Top 3 Products per category")
-    top5_by_category = (
-        sorted_recommendations.sort_values(["Category", "Final_Score"], ascending=[True, False])
-        .groupby("Category")
-        .head(3)
-    )
-
-    for cat in top5_by_category["Category"].unique():
-        st.markdown(f"#### 🗂️ {cat}")
-        subset = top5_by_category[top5_by_category["Category"] == cat]
-        cols = st.columns(5)
-        for i, (_, row) in enumerate(subset.iterrows()):
-            with cols[i % 5]:
-                st.markdown(f"**[{row['Product_Name']}]({row['URL']})**", unsafe_allow_html=True)
-                st.caption(f"💶 {row['Price (€)']}€ | 🥗 Nutri: {row['Nutriscore']} | ⭐ {row['Final_Score']}")
-                st.checkbox("✅ Add to basket", key=f"buy_{cat}_{i}")
 
 
 
