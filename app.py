@@ -247,18 +247,6 @@ if st.session_state.recs_ready:
                     "Product_ID": product_id,
                     "Quantity": 1
                 })
-    
-    # Productes destacats per categoria (>90)
-    for cat in top3_by_category["Category"].unique():
-        subset = top3_by_category[top3_by_category["Category"] == cat]
-        for i, (_, row) in enumerate(subset.iterrows()):
-            if st.session_state.get(f"buy_highscore_{cat}_{i}", False):
-                product_id = str(row["URL"]).split("/")[-1]
-                selected_products.append({
-                    "Product_Name": row["Product_Name"],
-                    "Product_ID": product_id,
-                    "Quantity": 1
-                })
 
 
     if selected_products:
