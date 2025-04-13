@@ -175,11 +175,19 @@ if st.session_state.recs_ready:
     recommendations = calculate_scores(df, user_priorities)
     sorted_recommendations = recommendations.sort_values("Final_Score", ascending=False)
 
+    st.subheader("🔄 Format de prova visual (dos estils)")
 
+    # Prepara subset d'exemple
+    filtered_by_category = (
+        sorted_recommendations[sorted_recommendations["Final_Score"] > 90]
+        .sort_values(["Category", "Final_Score"], ascending=[True, False])
+        .groupby("Category")
+        .head(3)
+    )
+    subset = filtered_by_category.head(6)  # només per exemple visual
 
-    st.subheader("🔄 Format A: Targetes 2 per fila (columns)")
-
-    subset = filtered_by_category.head(6)  # Només com a exemple visual
+    # Format A
+    st.subheader("🟩 Format A: Targetes 2 per fila (columns)")
 
     for i in range(0, len(subset), 2):
         cols = st.columns(2)
@@ -191,7 +199,8 @@ if st.session_state.recs_ready:
                     st.caption(f"{row['Price (€)']} € | Nutri: {row['Nutriscore']}")
                     st.checkbox("🛒 Afegir", key=f"colprod_{i+j}")
 
-    st.subheader("🔄 Format B: Llistat estil taula + acció")
+    # Format B
+    st.subheader("🟦 Format B: Llistat estil taula + acció")
 
     for i, row in subset.iterrows():
         col1, col2, col3, col4 = st.columns([5, 2, 1, 2])
