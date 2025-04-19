@@ -194,7 +194,7 @@ if st.session_state.recs_ready:
                 row["Product_ID"]
             ])
             
-    st.subheader("🥇 Here are yout top 5 Recommended Groceries")
+    st.subheader("🥇 Following are your top 5 Recommended Groceries")
 
     def make_clickable(val):
         return f'<a href="{val}" target="_blank">Link</a>' if pd.notna(val) else ''
