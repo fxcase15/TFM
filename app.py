@@ -297,9 +297,9 @@ if st.session_state.recs_ready:
         output_cart = BytesIO()
         with pd.ExcelWriter(output_cart, engine='xlsxwriter') as writer:
             df_cart.to_excel(writer, index=False, sheet_name='Cistell')
-    #st.download_button(
-    #    label="📄 Download all recommendations in Excel",
-    #    data=excel_data,
-    #    file_name="recomanacions.xlsx",
-    #    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    #)
+    st.download_button(
+        label="📄 Download all recommendations in Excel",
+        data=excel_data,
+        file_name="recomanacions.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
