@@ -194,7 +194,7 @@ if st.session_state.recs_ready:
                 row["Product_ID"]
             ])
             
-    st.subheader("🥇 Top 5 Recommended Groceries")
+    st.subheader("🥇 Here are yout top 5 Recommended Groceries")
 
     def make_clickable(val):
         return f'<a href="{val}" target="_blank">Link</a>' if pd.notna(val) else ''
@@ -205,7 +205,7 @@ if st.session_state.recs_ready:
     st.write(display_df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
     
-    st.subheader("📦 Top 3 Productes per categoria (amb Final Score > 90)")
+    st.subheader("📦 Please select your desired groceries. Go down below to add them to your AH cart. Note only >90 scoring products show below)")
 
     # Primer filtrem els productes amb puntuació superior a 90
     top5_by_category = (
