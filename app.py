@@ -144,9 +144,9 @@ def load_data():
 product_data = load_data()
 
 st.subheader("Please select your priorities")
-high = st.multiselect("🎯 High Priority (x3)", ['Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal'])
-medium = st.multiselect("⚖️ Medium Priority (x2)", ['Loosing weight', 'Eating Healthy', 'Reducing Colesterol', 'High Protein'])
-low = st.multiselect("💸 Low Priority (x1)", ['Price', 'Sustainability', 'Local Products'])
+high = st.multiselect("🎯 Allergies & Dietary Restrictions", ['Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal'])
+medium = st.multiselect("⚖️ Nutrition Goals", ['Loosing weight', 'Eating Healthy', 'Reducing Colesterol', 'High Protein'])
+low = st.multiselect("💸 Other Preferences", ['Price', 'Sustainability', 'Local Products'])
 
 user_priorities = {k: 0 for k in [
     'Gluten', 'Lactose', 'Nuts', 'Diabetes', 'Vegan', 'Vegetarian', 'Halal',
