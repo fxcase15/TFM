@@ -32,7 +32,8 @@ def preprocess_products(df):
     lactose_kw = ["lactose"]
     nuts_kw = ["noten", "amandel", "hazelnoot", "pecannoot", "cashewnoot", "kokosnoot", "macadamianoot", "pinda", "sesamzaad"]
 
-    df['Nutriscore'] = df['product_descripion'].str.extract(r'Nutri-Score ([A-E])', expand=False).fillna("Unknown")
+    df['Nutriscore_original'] = df['product_descripion'].str.extract(r'Nutri-Score ([A-E])', expand=False)
+    df['Nutriscore'] = df['Nutriscore_original'].fillna(df['Predicted_RandomForest']).fillna("Unknown")
     df['Bio'] = df['product_descripion'].str.contains("Biologisch", case=False, na=False).astype(int)
     df['Vegan'] = df['product_descripion'].str.lower().str.contains("vegan", na=False).astype(int) | df['Kenmerken'].str.lower().str.contains("veganistisch", na=False).astype(int)
     df['Vegetarian'] = df['Vegan'] | df['product_descripion'].str.lower().str.contains("vega", na=False).astype(int) | df['Kenmerken'].str.lower().str.contains("vegetarisch", na=False).astype(int)
