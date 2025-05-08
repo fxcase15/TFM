@@ -1,0 +1,967 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1746" y="54" width="324" height="636" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Outputs</Text>
+          <Font name="Segoe UI" size="11.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="128" b="255" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="294" y="54" width="1440" height="636" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Analysis</Text>
+          <Font name="Segoe UI" size="11.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="255" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="228" height="636" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Inputs</Text>
+          <Font name="Segoe UI" size="11.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="174" g="255" b="174" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="90" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Data Cleansed AH Data (1).xlsx
+Query=`Full1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Product ID" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="Double" />
+            <Field name="Product Name" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_WString" />
+            <Field name="Product Name 2" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_WString" />
+            <Field name="Price" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Quantity" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Nutriscore" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Vegan" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Bonus" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Prijsfavoriet" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Uit Nederland" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Diepvries" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Biologisch" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+            <Field name="Category" size="255" source="File: C:\Users\CCase\Downloads\Data Cleansed AH Data (1).xlsx|||`Full1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="90" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\CCase\Downloads\ah.xlsx|||`ah$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ah.xlsx
+Query=`ah$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="product_name" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="product_descripion" size="844" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_WString" />
+            <Field name="descripiton" size="1535" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_WString" />
+            <Field name="Extra_informatie" size="3898" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_WString" />
+            <Field name="Kenmerken" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_WString" />
+            <Field name="Ingrediënten" size="2757" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_WString" />
+            <Field name="Allergie_informatie_Bevat" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Allergie_informatie_kan_bevatten" size="263" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Energie" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Vet" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="waarvan_verzadigd" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="waarvan_onverzadigd" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Koolhydraten" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="waarvan_suikers" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Voedingsvezel" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Eiwitten" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="Zout" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="url" size="255" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="V_String" />
+            <Field name="id" source="File: C:\Users\CCase\Downloads\ah.xlsx|||`ah$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF CONTAINS([product_descripion], &quot;Nutri-Score A&quot;) THEN &quot;A&quot;&#xA;ELSEIF CONTAINS([product_descripion], &quot;Nutri-Score B&quot;) THEN &quot;B&quot;&#xA;ELSEIF CONTAINS([product_descripion], &quot;Nutri-Score C&quot;) THEN &quot;C&quot;&#xA;ELSEIF CONTAINS([product_descripion], &quot;Nutri-Score D&quot;) THEN &quot;D&quot;&#xA;ELSEIF CONTAINS([product_descripion], &quot;Nutri-Score E&quot;) THEN &quot;E&quot;&#xA;ELSE &quot;Unknown&quot;&#xA;ENDIF" field="Nutriscore" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS([product_descripion], &quot;PrijsFavoriet&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Prijsfavoriet" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS([product_descripion], &quot;Diepvries&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Diepvries" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS([product_descripion], &quot;Biologisch&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Biologisch" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([product_descripion]), &quot;vegan&quot;) THEN &quot;vegan&quot;&#xA;ELSEIF CONTAINS(LOWERCASE([product_descripion]), &quot;vega&quot;) THEN &quot;vegetarian&quot;&#xA;ELSE &quot;N/A&quot;&#xA;ENDIF" field="Vegan/Vegetarian" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Vegan/Vegetarian]), &quot;vegan&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Vegan" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Vegan/Vegetarian]), &quot;vegetarian&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Vegetarian" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot; Natuur &amp; Boer&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Responsible producers" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot; Zwangerschapslogo&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Not appropriate for pregnancy" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([product_descripion]), &quot;Veganistisch&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Veganistisch" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot;Vegetarisch&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Vegetarisch" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot;Recyclebaar&quot;) THEN &quot;1&quot;&#xA;ELSEIF CONTAINS(LOWERCASE([Kenmerken]), &quot; Groene Punt&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Recyclable" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot;Gluten vrij&quot;) THEN &quot;1&quot;&#xA;ELSEIF CONTAINS(LOWERCASE([Kenmerken]), &quot;Glutenvrij&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Glutenvrij" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot; Lactosevrij&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Lactosevrij" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Kenmerken]), &quot;Halal&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Halal" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Ingrediënten]), &quot;Waarvan toegevoegde suikers 0.00g&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="No added sugars" size="1" type="Bool" enabled="true" />
+            <FormulaField expression="IF&#xA;IsNull([Energie])&#xA;THEN &quot;0&quot;&#xA;ELSE &quot;1&quot;&#xA;ENDIF" field="Energy data" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Gluten&quot;)  OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Glutamaat&quot;)  OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Tarwe&quot;) &#xA;THEN &quot;0&quot;&#xA;ELSE &quot;1&quot;&#xA;ENDIF" field="Does NOT contain Gluten" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Lactose&quot;)&#xA;THEN &quot;0&quot;&#xA;ELSE &quot;1&quot;&#xA;ENDIF" field="Does NOT contain Lactose" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Noten&quot;) OR CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Amandel&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Hazelnoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Pecannoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Cashewnoot&quot;) OR &#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Kokosnoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Macadamianoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Pinda's&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Sesamzaad&quot;)&#xA;THEN &quot;0&quot;&#xA;ELSE &quot;1&quot;&#xA;ENDIF" field="Does NOT contain Nuts" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Gluten&quot;)  OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Glutamaat&quot;)  OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Tarwe&quot;) &#xA;THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Could contain Gluten" size="1" type="Bool" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_Bevat]), &quot;Lactose&quot;)&#xA;THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Could contain Lactose" size="1" type="Bool" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Noten&quot;) OR CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Amandel&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Hazelnoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Pecannoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Cashewnoot&quot;) OR &#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Kokosnoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Macadamianoot&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Pinda's&quot;) OR&#xA;CONTAINS(LOWERCASE([Allergie_informatie_kan_bevatten]), &quot;Sesamzaad&quot;)&#xA;THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Could Contain Nuts" size="1" type="Bool" enabled="true" />
+            <FormulaField expression="TONUMBER(REGEX_Replace([Energie], &quot; .*&quot;, &quot;&quot;))" field="kJ" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="TONUMBER(REGEX_Replace([Energie], &quot;.*\((\d+) kcal\)&quot;, &quot;\1&quot;))" field="Kcal" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="IF CONTAINS(LOWERCASE([product_descripion]), &quot;Uit nederland&quot;) THEN &quot;1&quot;&#xA;ELSE &quot;0&quot;&#xA;ENDIF" field="Local_Products" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Data normalization</AnnotationText>
+          <DefaultAnnotationText>Nutriscore = IF CONTAINS([product_descripion], "Nutri-Score A") THEN "A"
+ELSEIF ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="546" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Product ID" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="id" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Product ID" selected="True" input="Left_" />
+                <SelectField field="Left_Product Name" selected="True" input="Left_" />
+                <SelectField field="Left_Product Name 2" selected="True" input="Left_" />
+                <SelectField field="Left_Price" selected="True" input="Left_" />
+                <SelectField field="Left_Quantity" selected="True" input="Left_" />
+                <SelectField field="Left_Nutriscore" selected="True" input="Left_" />
+                <SelectField field="Right_Energie" selected="True" rename="Right_Energie" input="Right_" />
+                <SelectField field="Right_Vet" selected="True" rename="Right_Vet" input="Right_" />
+                <SelectField field="Right_waarvan_verzadigd" selected="True" rename="Right_waarvan_verzadigd" input="Right_" />
+                <SelectField field="Right_waarvan_onverzadigd" selected="True" rename="Right_waarvan_onverzadigd" input="Right_" />
+                <SelectField field="Right_Koolhydraten" selected="True" rename="Right_Koolhydraten" input="Right_" />
+                <SelectField field="Right_waarvan_suikers" selected="True" rename="Right_waarvan_suikers" input="Right_" />
+                <SelectField field="Right_Voedingsvezel" selected="True" rename="Right_Voedingsvezel" input="Right_" />
+                <SelectField field="Right_Eiwitten" selected="True" rename="Right_Eiwitten" input="Right_" />
+                <SelectField field="Right_Zout" selected="True" rename="Right_Zout" input="Right_" />
+                <SelectField field="Right_url" selected="True" rename="Right_url" input="Right_" />
+                <SelectField field="Right_id" selected="True" rename="Right_id" input="Right_" />
+                <SelectField field="Right_Nutriscore" selected="True" rename="Right_Nutriscore" input="Right_" />
+                <SelectField field="Right_Prijsfavoriet" selected="True" rename="Right_Prijsfavoriet" input="Right_" />
+                <SelectField field="Right_Diepvries" selected="True" rename="Right_Diepvries" input="Right_" />
+                <SelectField field="Right_Biologisch" selected="True" rename="Right_Biologisch" input="Right_" />
+                <SelectField field="Right_Vegan/Vegetarian" selected="True" input="Right_" />
+                <SelectField field="Right_Vegan" selected="True" rename="Right_Vegan" input="Right_" />
+                <SelectField field="Right_Vegetarian" selected="True" input="Right_" />
+                <SelectField field="Right_Responsible producers" selected="True" input="Right_" />
+                <SelectField field="Right_Not appropriate for pregnancy" selected="True" input="Right_" />
+                <SelectField field="Right_Veganistisch" selected="True" input="Right_" />
+                <SelectField field="Right_Vegetarisch" selected="True" input="Right_" />
+                <SelectField field="Right_Recyclable" selected="True" input="Right_" />
+                <SelectField field="Right_Glutenvrij" selected="True" input="Right_" />
+                <SelectField field="Right_Lactosevrij" selected="True" input="Right_" />
+                <SelectField field="Right_Halal" selected="True" input="Right_" />
+                <SelectField field="Right_No added sugars" selected="True" input="Right_" />
+                <SelectField field="Right_Energy data" selected="True" input="Right_" />
+                <SelectField field="Right_Does NOT contain Gluten" selected="True" input="Right_" />
+                <SelectField field="Right_Does NOT contain Lactose" selected="True" input="Right_" />
+                <SelectField field="Right_Does NOT contain Nuts" selected="True" input="Right_" />
+                <SelectField field="Right_Could contain GlutenR" selected="False" input="Right_" />
+                <SelectField field="Right_Could contain LactoseR" selected="True" input="Right_" />
+                <SelectField field="Right_Could Contain NutsR" selected="True" input="Right_" />
+                <SelectField field="Left_Vegan" selected="False" input="Left_" />
+                <SelectField field="Left_Bonus" selected="False" input="Left_" />
+                <SelectField field="Left_Prijsfavoriet" selected="False" input="Left_" />
+                <SelectField field="Left_Uit Nederland" selected="False" input="Left_" />
+                <SelectField field="Left_Diepvries" selected="False" input="Left_" />
+                <SelectField field="Left_Biologisch" selected="False" input="Left_" />
+                <SelectField field="Left_Category" selected="False" input="Left_" />
+                <SelectField field="Right_product_name" selected="False" rename="Right_product_name" input="Right_" />
+                <SelectField field="Right_product_descripion" selected="False" rename="Right_product_descripion" input="Right_" />
+                <SelectField field="Right_descripiton" selected="False" rename="Right_descripiton" input="Right_" />
+                <SelectField field="Right_Extra_informatie" selected="False" rename="Right_Extra_informatie" input="Right_" />
+                <SelectField field="Right_Kenmerken" selected="False" rename="Right_Kenmerken" input="Right_" />
+                <SelectField field="Right_Ingrediënten" selected="False" rename="Right_Ingrediënten" input="Right_" />
+                <SelectField field="Right_Allergie_informatie_Bevat" selected="False" rename="Right_Allergie_informatie_Bevat" input="Right_" />
+                <SelectField field="Right_Allergie_informatie_kan_bevatten" selected="False" rename="Right_Allergie_informatie_kan_bevatten" input="Right_" />
+                <SelectField field="Right_Could contain Gluten" selected="True" input="Right_" />
+                <SelectField field="Right_kJ" selected="True" input="Right_" />
+                <SelectField field="Right_Kcal" selected="True" input="Right_" />
+                <SelectField field="Right_Could contain Lactose" selected="True" input="Right_" />
+                <SelectField field="Right_Could Contain Nuts" selected="True" input="Right_" />
+                <SelectField field="Right_Local_Products" selected="True" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1866" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\CCase\Downloads\MasterSheet1_with_calculations_performed.xlsx|||Sheet1</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <UNCLocal>False</UNCLocal>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>RemoveFile</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MasterSheet1_with_calculations_performed.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="690" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Product ID" selected="True" />
+            <SelectField field="Product Name" selected="True" />
+            <SelectField field="Price" selected="True" />
+            <SelectField field="Quantity" selected="True" />
+            <SelectField field="Right_Energie" selected="True" rename="Energy" type="V_WString" size="2147483647" />
+            <SelectField field="kJ" selected="True" type="Double" size="8" />
+            <SelectField field="Kcal" selected="True" type="Double" size="8" />
+            <SelectField field="Right_Vet" selected="True" rename="Fat" type="Double" size="8" />
+            <SelectField field="Right_waarvan_verzadigd" selected="True" rename="Saturated Fats" type="Double" size="8" />
+            <SelectField field="Right_waarvan_onverzadigd" selected="True" rename="Unsaturated Fats" type="Double" size="8" />
+            <SelectField field="Right_Koolhydraten" selected="True" rename="Carbohidrates" type="Double" size="8" />
+            <SelectField field="Right_waarvan_suikers" selected="True" rename="Of which sugars" type="Double" size="8" />
+            <SelectField field="Right_Voedingsvezel" selected="True" rename="Fibers" type="Double" size="8" />
+            <SelectField field="Right_Eiwitten" selected="True" rename="Protein" type="Double" size="8" />
+            <SelectField field="Right_Zout" selected="True" rename="Salt" type="Double" size="8" />
+            <SelectField field="Right_Prijsfavoriet" selected="True" rename="BestPrice" type="Bool" size="1" />
+            <SelectField field="Right_Diepvries" selected="True" rename="Frozen" type="Bool" size="1" />
+            <SelectField field="Right_Biologisch" selected="True" rename="Bio" type="Bool" size="1" />
+            <SelectField field="Responsible producers" selected="True" type="Bool" size="1" />
+            <SelectField field="Veganistisch" selected="True" rename="Vegan1" type="Bool" size="1" />
+            <SelectField field="Right_Vegan" selected="True" rename="Vegan2" type="Bool" size="1" />
+            <SelectField field="Vegetarisch" selected="True" rename="Vegetarian1" type="Bool" size="1" />
+            <SelectField field="Vegetarian" selected="True" rename="Vegetarian2" type="Bool" size="1" />
+            <SelectField field="Recyclable" selected="True" type="Bool" size="1" />
+            <SelectField field="Glutenvrij" selected="True" rename="Glutenfree" type="Bool" size="1" />
+            <SelectField field="Does NOT contain Gluten" selected="True" type="Bool" size="1" />
+            <SelectField field="Could Contain Gluten" selected="True" />
+            <SelectField field="Lactosevrij" selected="True" rename="Lactosefree" type="Bool" size="1" />
+            <SelectField field="Does NOT contain Lactose" selected="True" type="Bool" size="1" />
+            <SelectField field="Could contain LactoseR" selected="True" type="Bool" size="1" />
+            <SelectField field="Halal" selected="True" type="Bool" size="1" />
+            <SelectField field="No added sugars" selected="True" />
+            <SelectField field="Energy data" selected="True" type="Bool" size="1" />
+            <SelectField field="Not appropriate for pregnancy" selected="True" type="Bool" size="1" />
+            <SelectField field="Does NOT contain Nuts" selected="True" type="Bool" size="1" />
+            <SelectField field="Could Contain NutsR" selected="True" type="Bool" size="1" />
+            <SelectField field="Could contain GlutenR" selected="False" type="Bool" size="1" />
+            <SelectField field="Could contain Lactose" selected="True" />
+            <SelectField field="Local_Products" selected="True" type="Bool" size="1" />
+            <SelectField field="*Unknown" selected="True" />
+            <SelectField field="Right_id" selected="False" />
+            <SelectField field="Right_Nutriscore" selected="False" />
+            <SelectField field="Right_url" selected="True" rename="URL" />
+            <SelectField field="Nutriscore" selected="True" />
+            <SelectField field="Vegan" selected="False" />
+            <SelectField field="Product Name 2" selected="False" />
+            <SelectField field="Vegan/Vegetarian" selected="False" />
+            <SelectField field="Local Product" selected="False" />
+            <SelectField field="Bonus" selected="False" />
+            <SelectField field="Pregnancy" selected="False" />
+            <SelectField field="Prijsfavoriet" selected="False" />
+            <SelectField field="Uit Nederland" selected="False" />
+            <SelectField field="Diepvries" selected="False" />
+            <SelectField field="Biologisch" selected="False" />
+            <SelectField field="Contains Gluten" selected="False" />
+            <SelectField field="Contains Lactose" selected="False" />
+            <SelectField field="Contains Nuts" selected="False" />
+            <SelectField field="Could Contain Luctose" selected="False" />
+            <SelectField field="Could Contain Nuts" selected="True" />
+            <SelectField field="Category" selected="False" />
+            <SelectField field="Right_product_name" selected="False" />
+            <SelectField field="Right_product_descripion" selected="False" />
+            <SelectField field="Right_descripiton" selected="False" />
+            <SelectField field="Right_Extra_informatie" selected="False" />
+            <SelectField field="Right_Kenmerken" selected="False" />
+            <SelectField field="Right_Ingrediënten" selected="False" />
+            <SelectField field="Right_Allergie_informatie_Bevat" selected="False" />
+            <SelectField field="Right_Allergie_informatie_kan_bevatten" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="822" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Fat]*9" field="Fat_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Saturated Fats]*9" field="Sat_Fat_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Unsaturated Fats]*9" field="Unsat_Fat_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Fat_kcal] / [Kcal], 0)" field="Fat_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Sat_Fat_kCal] / [Kcal], 0)" field="Sat_Fat_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Carbohidrates]*4" field="Carbo_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Of which sugars]*4" field="Sugar_Carb_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Carbo_kCal] / [Kcal], 0)" field="Carbo_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Sugar_Carb_kCal] / [Kcal], 0)" field="Sugar_Carbo_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Protein]*4" field="Protein_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Fibers]*2" field="Fiber_kCal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Protein_kCal] / [Kcal], 0)" field="Protein_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, [Fiber_kCal] / [Kcal], 0)" field="Fiber_from_energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="[Protein_from_energy]+[Carbo_from_energy]+[Fat_from_energy]+[Fiber_from_energy]" field="Total energy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IIF([Kcal] &gt; 0, ([Salt]/[Kcal])*100, 0)" field="Salt_from_energy" size="8" type="Double" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Energy Data Calculations</AnnotationText>
+          <DefaultAnnotationText>Fat_kCal = [Fat]*9
+Sat_Fat_kCal = [Saturated Fats]*9
+Unsat_Fat_kCal = [Unsaturat...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="978" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Energy" selected="False" />
+            <SelectField field="Fat" selected="False" />
+            <SelectField field="Saturated Fats" selected="False" />
+            <SelectField field="Unsaturated Fats" selected="False" />
+            <SelectField field="Carbohidrates" selected="False" />
+            <SelectField field="Of which sugars" selected="False" />
+            <SelectField field="Fibers" selected="False" />
+            <SelectField field="Protein" selected="False" />
+            <SelectField field="Salt" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1866" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\CCase\Downloads\MasterSheet2_with_only_necessary_fields.xlsx|||Sheet1</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <UNCLocal>False</UNCLocal>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>RemoveFile</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>MasterSheet2_with_only_necessary_fields.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1122" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Glutenfree] = 1 AND [Does NOT contain Gluten]=1 AND [Could contain Gluten] = 0&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Gluten" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Lactosefree] = 1 AND [Does NOT contain Lactose] = 1 AND [Could contain Lactose] = 0&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Lactose" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Does NOT contain Nuts] = 1 AND [Could contain Nuts] = 0&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Nuts" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF ISNULL([Sugar_Carb_kCal])&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Diabetes" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Vegan1] = 1 OR [Vegan2] = 1&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Vegan" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Vegan1] = 1 OR [Vegan2] = 1 OR [Vegetarian1] = 1 OR [Vegetarian2] = 1&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Vegetarian" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Vegan1] = 1 OR [Vegan2] = 1 OR [Vegetarian1] = 1 OR [Vegetarian2] = 1 OR [Halal] = 1&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Halal" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF IIF([kJ] &gt; 0, ([kJ] / 3768 )*100, 0) &lt; 10&#xA;THEN 100&#xA;ELSEIF IIF([kJ] &gt; 0, ([kJ] / 3768 )*100, 0) &lt; 20&#xA;THEN 75&#xA;ELSEIF IIF([kJ] &gt; 0, ([kJ] / 3768 )*100, 0) &lt; 30&#xA;THEN 50&#xA;ELSEIF IIF([kJ] &gt; 0, ([kJ] / 3768 )*100, 0) &lt; 40&#xA;THEN 25&#xA;ELSE 0&#xA;ENDIF&#xA;" field="Calc_Loosing_weight" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Nutriscore] = &quot;A&quot;&#xA;THEN 100&#xA;ELSEIF [Nutriscore] = &quot;B&quot;&#xA;THEN 75&#xA;ELSEIF [Nutriscore] = &quot;C&quot;&#xA;THEN 50&#xA;ELSEIF [Nutriscore] = &quot;D&quot;&#xA;THEN 25&#xA;ELSEIF [Nutriscore] = &quot;E&quot;&#xA;THEN 00&#xA;ELSE 00&#xA;ENDIF" field="Calc_Eating_Healthy" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Sat_Fat_from_energy] &lt; 0.02&#xA;THEN 100&#xA;ELSEIF [Sat_Fat_from_energy] &lt; 0.04&#xA;THEN 80&#xA;ELSEIF [Sat_Fat_from_energy] &lt; 0.06&#xA;THEN 60&#xA;ELSEIF [Sat_Fat_from_energy] &lt; 0.08&#xA;THEN 40&#xA;ELSEIF [Sat_Fat_from_energy] &lt; 0.1&#xA;THEN 20&#xA;ELSE 0&#xA;ENDIF&#xA;" field="Calc_Reducing_Colesterol" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Protein_from_energy] &gt; 0.5&#xA;THEN 100&#xA;ELSEIF [Protein_from_energy] &gt; 0.4&#xA;THEN 80&#xA;ELSEIF [Protein_from_energy] &gt; 0.3&#xA;THEN 60&#xA;ELSEIF [Protein_from_energy] &gt; 0.2&#xA;THEN 40&#xA;ELSEIF [Protein_from_energy] &gt; 0.1&#xA;THEN 20&#xA;ELSE 0&#xA;ENDIF&#xA;" field="Calc_Increase_MussleMass_High_Protein_Intake" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [BestPrice]&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Price" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Recyclable] = 1&#xA;THEN 100&#xA;ELSEIF [Bio] = 1&#xA;THEN 100&#xA;ELSEIF [Responsible producers] = 1&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Sustainability" size="8" type="Double" enabled="true" />
+            <FormulaField expression="IF [Local_Products] = 1&#xA;THEN 100&#xA;ELSE 0&#xA;ENDIF" field="Calc_Local_Products" size="8" type="Double" enabled="true" />
+            <FormulaField expression="3" field="User" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Calculating all Product Scoring by Category</AnnotationText>
+          <DefaultAnnotationText>Calc_Gluten = IF [Glutenfree] = 1 AND [Does NOT contain Gluten]=1 AND [Could con...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1254" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="kJ" selected="False" />
+            <SelectField field="Kcal" selected="False" />
+            <SelectField field="BestPrice" selected="False" />
+            <SelectField field="Frozen" selected="False" />
+            <SelectField field="Bio" selected="False" />
+            <SelectField field="Responsible producers" selected="False" />
+            <SelectField field="Vegan1" selected="False" />
+            <SelectField field="Vegan2" selected="False" />
+            <SelectField field="Vegetarian1" selected="False" />
+            <SelectField field="Vegetarian2" selected="False" />
+            <SelectField field="Recyclable" selected="False" />
+            <SelectField field="Glutenfree" selected="False" />
+            <SelectField field="Does NOT contain Gluten" selected="False" />
+            <SelectField field="Could contain Gluten" selected="False" />
+            <SelectField field="Lactosefree" selected="False" />
+            <SelectField field="Does NOT contain Lactose" selected="False" />
+            <SelectField field="Halal" selected="False" />
+            <SelectField field="No added sugars" selected="False" />
+            <SelectField field="Energy data" selected="False" />
+            <SelectField field="Not appropriate for pregnancy" selected="False" />
+            <SelectField field="Does NOT contain Nuts" selected="False" />
+            <SelectField field="Could contain Lactose" selected="False" />
+            <SelectField field="Local_Products" selected="False" />
+            <SelectField field="Nutriscore" selected="False" />
+            <SelectField field="Could Contain Nuts" selected="False" />
+            <SelectField field="Fat_kCal" selected="False" />
+            <SelectField field="Sat_Fat_kCal" selected="False" />
+            <SelectField field="Unsat_Fat_kCal" selected="False" />
+            <SelectField field="Fat_from_energy" selected="False" />
+            <SelectField field="Sat_Fat_from_energy" selected="False" />
+            <SelectField field="Carbo_kCal" selected="False" />
+            <SelectField field="Sugar_Carb_kCal" selected="False" />
+            <SelectField field="Carbo_from_energy" selected="False" />
+            <SelectField field="Sugar_Carbo_from_energy" selected="False" />
+            <SelectField field="Protein_kCal" selected="False" />
+            <SelectField field="Fiber_kCal" selected="False" />
+            <SelectField field="Protein_from_energy" selected="False" />
+            <SelectField field="Fiber_from_energy" selected="False" />
+            <SelectField field="Total energy" selected="False" />
+            <SelectField field="Salt_from_energy" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="90" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Gluten" />
+            <Field name="Lactose" />
+            <Field name="Nuts" />
+            <Field name="Diabetes" />
+            <Field name="Vegan" />
+            <Field name="Vegetarian" />
+            <Field name="Halal" />
+            <Field name="Loosing weight" />
+            <Field name="Eating Healthy" />
+            <Field name="Colesterol" />
+            <Field name="Increased Mass" />
+            <Field name="Price" />
+            <Field name="Sustainability" />
+            <Field name="Local Products" />
+          </Fields>
+          <Data>
+            <r>
+              <c>0</c>
+              <c>0</c>
+              <c>0</c>
+              <c>0</c>
+              <c>1</c>
+              <c>0</c>
+              <c>1</c>
+              <c>0</c>
+              <c>1</c>
+              <c>0</c>
+              <c>0</c>
+              <c>0</c>
+              <c>1</c>
+              <c>0</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1026" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF [Gluten] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Gluten_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Lactose] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Lactose_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Nuts] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Nuts_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Diabetes] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Diabetes_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Vegan] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Vegan_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Vegetarian] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Vegetarian_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Halal] = 1&#xA;THEN 3&#xA;ELSE 0&#xA;ENDIF" field="Halal_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Loosing weight] = 1&#xA;THEN 2&#xA;ELSE 0&#xA;ENDIF" field="Loosing_Weight_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Eating Healthy] = 1&#xA;THEN 2&#xA;ELSE 0&#xA;ENDIF" field="Healthy_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Colesterol] = 1&#xA;THEN 2&#xA;ELSE 0&#xA;ENDIF" field="Colesterol_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Increased Mass] = 1&#xA;THEN 2&#xA;ELSE 0&#xA;ENDIF" field="Increased_Mass_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Increased Mass] = 1&#xA;THEN 1&#xA;ELSE 0&#xA;ENDIF" field="Price_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Increased Mass] = 1&#xA;THEN 1&#xA;ELSE 0&#xA;ENDIF" field="Sustainability_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="IF [Local Products] = 1&#xA;THEN 1&#xA;ELSE 0&#xA;ENDIF" field="Local_Products_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="+[Gluten_Pond]+[Lactose_Pond]+[Nuts_Pond]+[Diabetes_Pond]+[Vegan_Pond]+[Vegetarian]+[Halal_Pond]+[Loosing_Weight_Pond]+[Healthy_Pond]+[Colesterol_Pond]+[Increased_Mass_Pond]+[Price_Pond]+[Sustainability_Pond]+[Local_Products_Pond]" field="Total_Pond" size="4" type="Float" enabled="true" />
+            <FormulaField expression="3" field="User" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Calculating Ponderation and Sum</Name>
+          <DefaultAnnotationText>Calculating Ponderation and Sum</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="450" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Gluten" selected="True" type="Bool" size="1" />
+            <SelectField field="Lactose" selected="True" type="Bool" size="1" />
+            <SelectField field="Nuts" selected="True" type="Bool" size="1" />
+            <SelectField field="Diabetes" selected="True" type="Bool" size="1" />
+            <SelectField field="Vegan" selected="True" type="Bool" size="1" />
+            <SelectField field="Vegetarian" selected="True" type="Bool" size="1" />
+            <SelectField field="Halal" selected="True" type="Bool" size="1" />
+            <SelectField field="Loosing weight" selected="True" type="Bool" size="1" />
+            <SelectField field="Eating Healthy" selected="True" type="Bool" size="1" />
+            <SelectField field="Colesterol" selected="True" type="Bool" size="1" />
+            <SelectField field="Increased Mass" selected="True" type="Bool" size="1" />
+            <SelectField field="Price" selected="True" type="Bool" size="1" />
+            <SelectField field="Sustainability" selected="True" type="Bool" size="1" />
+            <SelectField field="Local Products" selected="True" type="Bool" size="1" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1362" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="User" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="User" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_Price" selected="True" rename="Right_Price" input="Right_" />
+                <SelectField field="Right_User" selected="True" rename="Right_User" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1482" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="round((+[Gluten_Pond]*[Calc_Gluten]&#xA;+[Lactose_Pond]*[Calc_Lactose]&#xA;+[Nuts_Pond]*[Calc_Nuts]&#xA;+[Diabetes_Pond]*[Calc_Diabetes]&#xA;+[Vegan_Pond]*[Calc_Vegan]&#xA;+[Vegetarian]*[Calc_Vegetarian]&#xA;+[Halal_Pond]*[Calc_Halal]&#xA;+[Loosing_Weight_Pond]*[Calc_Loosing_weight]&#xA;+[Healthy_Pond]*[Calc_Eating_Healthy]&#xA;+[Colesterol_Pond]*[Calc_Reducing_Colesterol]&#xA;+[Increased_Mass_Pond]*[Calc_Increase_MussleMass_High_Protein_Intake]&#xA;+[Price_Pond]*[Calc_Price]&#xA;+[Sustainability_Pond]*[Calc_Sustainability]&#xA;+[Local_Products_Pond]*[Calc_Local_Products])/[Total_Pond],2)" field="Final calculation per user" size="8" type="Double" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Final calculation product x user</AnnotationText>
+          <DefaultAnnotationText>Final calculation per user = round((+[Gluten_Pond]*[Calc_Gluten]
++[Lactose_Pond]...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1602" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Product ID" selected="True" />
+            <SelectField field="Product Name" selected="True" />
+            <SelectField field="Price" selected="True" />
+            <SelectField field="Quantity" selected="True" />
+            <SelectField field="User" selected="True" />
+            <SelectField field="Final calculation per user" selected="True" />
+            <SelectField field="Calc_Gluten" selected="True" />
+            <SelectField field="Calc_Lactose" selected="True" />
+            <SelectField field="Calc_Nuts" selected="True" />
+            <SelectField field="Calc_Diabetes" selected="True" />
+            <SelectField field="Calc_Vegan" selected="True" />
+            <SelectField field="Calc_Vegetarian" selected="True" />
+            <SelectField field="Calc_Halal" selected="True" />
+            <SelectField field="Calc_Loosing_weight" selected="True" />
+            <SelectField field="Calc_Eating_Healthy" selected="True" />
+            <SelectField field="Calc_Reducing_Colesterol" selected="True" />
+            <SelectField field="Calc_Increase_MussleMass_High_Protein_Intake" selected="True" />
+            <SelectField field="Calc_Price" selected="True" />
+            <SelectField field="Calc_Sustainability" selected="True" />
+            <SelectField field="Calc_Local_Products" selected="True" />
+            <SelectField field="Gluten" selected="True" />
+            <SelectField field="Lactose" selected="True" />
+            <SelectField field="Nuts" selected="True" />
+            <SelectField field="Diabetes" selected="True" />
+            <SelectField field="Vegan" selected="True" />
+            <SelectField field="Vegetarian" selected="True" />
+            <SelectField field="Halal" selected="True" />
+            <SelectField field="Loosing weight" selected="True" />
+            <SelectField field="Eating Healthy" selected="True" />
+            <SelectField field="Colesterol" selected="True" />
+            <SelectField field="Increased Mass" selected="True" />
+            <SelectField field="Right_Price" selected="True" />
+            <SelectField field="Sustainability" selected="True" />
+            <SelectField field="Local Products" selected="True" />
+            <SelectField field="Gluten_Pond" selected="False" />
+            <SelectField field="Lactose_Pond" selected="False" />
+            <SelectField field="Nuts_Pond" selected="False" />
+            <SelectField field="Diabetes_Pond" selected="False" />
+            <SelectField field="Vegan_Pond" selected="False" />
+            <SelectField field="Vegetarian_Pond" selected="False" />
+            <SelectField field="Halal_Pond" selected="False" />
+            <SelectField field="Loosing_Weight_Pond" selected="False" />
+            <SelectField field="Healthy_Pond" selected="False" />
+            <SelectField field="Colesterol_Pond" selected="False" />
+            <SelectField field="Increased_Mass_Pond" selected="False" />
+            <SelectField field="Price_Pond" selected="False" />
+            <SelectField field="Sustainability_Pond" selected="False" />
+            <SelectField field="Local_Products_Pond" selected="False" />
+            <SelectField field="Total_Pond" selected="False" />
+            <SelectField field="Right_User" selected="False" rename="User" />
+            <SelectField field="URL" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1866" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="25">C:\Users\CCase\Downloads\Output_User5v1.xlsx|||Sheet1</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <PreserveFormat>False</PreserveFormat>
+            <UNCLocal>False</UNCLocal>
+            <SkipFieldNames>False</SkipFieldNames>
+            <OutputOption>RemoveFile</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Output_User5v1.xlsx
+Query=Sheet1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Join" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="18" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Join" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>AH Recommendation ML Model</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="462087b2-ce3c-42bf-9bf8-d0c7ceee893c" />
+      <Telemetry>
+        <PreviousWorkflowId value="a69ea7a3-288d-4a53-9fe9-c55ee1a96057" />
+        <OriginWorkflowId value="79e7041f-ab19-449b-804c-c9c04749f113" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
